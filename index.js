@@ -1,15 +1,17 @@
 const {menubar} = require("menubar");
 const {readJsonFileSync} = require("./util/FileUtil");
-const {app, BrowserWindow, ipcRenderer, ipcMain, contextBridge} = require('electron');
+const {app, BrowserWindow, ipcRenderer, ipcMain, contextBridge, dialog} = require('electron');
 const path = require("path");
 const fs = require('fs');
-const sqlite3 = require('sqlite3').verbose();
-
+const dbFileName = 'nba.db';
+const asarDbPath = path.join(__dirname, dbFileName);
+const userDataPath = app.getPath('userData');
+const localDbPath = path.join(userDataPath, dbFileName);
 
 const knex = require('knex')({
     client: 'sqlite3',
     connection: {
-        filename: 'nba.db',
+        filename: localDbPath,
     },
 })
 
@@ -86,15 +88,8 @@ let enableLive = false
 mb.on("ready", async () => {
 
 
-    await knex.schema.createTableIfNotExists('config', (table) => {
-        table.increments('id');
-        table.string('type');
-        table.string('val');
-    })
-
-
     // 初始化数据库
-    setupDatabase()
+    await setupDatabase()
 
 
     logoJson = readJsonFileSync(path.join(__dirname, "resources", "logo.json"))
@@ -102,14 +97,12 @@ mb.on("ready", async () => {
 })
 
 
-function setupDatabase() {
-    const dbFileName = 'nba.db';
-    const asarDbPath = path.join(__dirname, dbFileName);
-    const userDataPath = app.getPath('userData');
-    const localDbPath = path.join(userDataPath, dbFileName);
+async function setupDatabase() {
+
 
     console.info("localDbPath:", localDbPath)
     console.info("asarDbPath:", asarDbPath)
+
 
     if (!fs.existsSync(localDbPath)) {
         // 确保用户数据目录存在
@@ -119,11 +112,20 @@ function setupDatabase() {
         // 复制数据库文件到用户数据目录
         const readStream = fs.createReadStream(asarDbPath);
         const writeStream = fs.createWriteStream(localDbPath);
-        readStream.on('error', (err) => console.error('Failed to read from asar:', err));
+
+
         writeStream.on('error', (err) => console.error('Failed to write to user data:', err));
-        writeStream.on('finish', () => console.log('Database copied to user data directory'));
+        writeStream.on('finish', () => {
+
+        });
         readStream.pipe(writeStream);
     }
+
+    await knex.schema.createTableIfNotExists('config', (table) => {
+        table.increments('id');
+        table.string('type');
+        table.string('val');
+    })
 }
 
 
@@ -157,6 +159,8 @@ mb.on("after-create-window", async () => {
 
 
 async function startApp() {
+    gameFlag = null
+    mb.tray.setTitle("")
 
     const selectedRows = await knex('config').select('*')
 
@@ -213,16 +217,14 @@ function getNbaInfo() {
 }
 
 function resetLogo() {
-    let file = path.join(__dirname, "images", "nba_logo.png");
+    let file = path.join(__dirname, "images", "24x24.png");
     mb.tray.setImage(file)
-    mb.tray.setTitle("")
 }
 
 
 let gameFlag = null
 
 function playGame(starInfo) {
-
     if (!starInfo) {
         // 没有比赛
 
