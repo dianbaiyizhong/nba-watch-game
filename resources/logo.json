@@ -12,7 +12,8 @@
     "espnFontColor": "#174C84",
     "scoreBoardColor": "#FF144F",
     "SpectrumSportsnetScoreBoardColor": "#005592",
-    "city": "费城"
+    "city": "费城",
+    "shortName": "PHI"
   },
   {
     "teamName": "timberwolves",
@@ -27,7 +28,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#007CD1",
     "SpectrumSportsnetScoreBoardColor": "#081A32",
-    "city": "明尼苏达"
+    "city": "明尼苏达",
+    "shortName": "MIN"
   },
   {
     "teamName": "bucks",
@@ -42,7 +44,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#008B37",
     "SpectrumSportsnetScoreBoardColor": "#003814",
-    "city": "密尔沃基"
+    "city": "密尔沃基",
+    "shortName": "MIL"
   },
   {
     "teamName": "pistons",
@@ -57,7 +60,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#0055B1",
     "SpectrumSportsnetScoreBoardColor": "#15346E",
-    "city": "底特律"
+    "city": "底特律",
+    "shortName": "DET"
   },
   {
     "teamName": "raptors",
@@ -72,7 +76,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#FF1226",
     "SpectrumSportsnetScoreBoardColor": "#171717",
-    "city": "多伦多"
+    "city": "多伦多",
+    "shortName": "TOR"
   },
   {
     "teamName": "pacers",
@@ -87,7 +92,8 @@
     "espnFontColor": "#F1CF5B",
     "scoreBoardColor": "#FFCE38",
     "SpectrumSportsnetScoreBoardColor": "#002349",
-    "city": "印第安纳"
+    "city": "印第安纳",
+    "shortName": "IND"
   },
   {
     "teamName": "cavaliers",
@@ -102,7 +108,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#AE0046",
     "SpectrumSportsnetScoreBoardColor": "#6C002B",
-    "city": "克利夫兰"
+    "city": "克利夫兰",
+    "shortName": "CLE"
   },
   {
     "teamName": "wizards",
@@ -117,7 +124,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#FF1436",
     "SpectrumSportsnetScoreBoardColor": "#002149",
-    "city": "华盛顿"
+    "city": "华盛顿",
+    "shortName": "WAS"
   },
   {
     "teamName": "nets",
@@ -132,7 +140,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#A1B0B8",
     "SpectrumSportsnetScoreBoardColor": "#0F191D",
-    "city": "布鲁克林"
+    "city": "布鲁克林",
+    "shortName": "BKN"
   },
   {
     "teamName": "knicks",
@@ -147,7 +156,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#0083DB",
     "SpectrumSportsnetScoreBoardColor": "#005692",
-    "city": "纽约"
+    "city": "纽约",
+    "shortName": "NY"
   },
   {
     "teamName": "celtics",
@@ -162,7 +172,8 @@
     "espnFontColor": "#EDF1E8",
     "scoreBoardColor": "#01E37B",
     "SpectrumSportsnetScoreBoardColor": "#00562E",
-    "city": "波士顿"
+    "city": "波士顿",
+    "shortName": "BOS"
   },
   {
     "teamName": "hornets",
@@ -177,7 +188,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#009FB8",
     "SpectrumSportsnetScoreBoardColor": "#150B4C",
-    "city": "夏洛特"
+    "city": "夏洛特",
+    "shortName": "CHA"
   },
   {
     "teamName": "magic",
@@ -192,7 +204,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#00A5FF",
     "SpectrumSportsnetScoreBoardColor": "#005384",
-    "city": "奥兰多"
+    "city": "奥兰多",
+    "shortName": "ORL"
   },
   {
     "teamName": "heat",
@@ -207,7 +220,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#D5003F",
     "SpectrumSportsnetScoreBoardColor": "#7A0023",
-    "city": "迈阿密"
+    "city": "迈阿密",
+    "shortName": "MIA"
   },
   {
     "teamName": "trailblazers",
@@ -222,7 +236,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#FF2E37",
     "SpectrumSportsnetScoreBoardColor": "#7B1E20",
-    "city": "波特兰"
+    "city": "波特兰",
+    "shortName": "POR"
   },
   {
     "teamName": "nuggets",
@@ -237,7 +252,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#FFC436",
     "SpectrumSportsnetScoreBoardColor": "#081932",
-    "city": "丹佛"
+    "city": "丹佛",
+    "shortName": "DEV"
   },
   {
     "teamName": "thunder",
@@ -252,7 +268,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#00C0FF",
     "SpectrumSportsnetScoreBoardColor": "#00234F",
-    "city": "奥克拉荷马"
+    "city": "奥克拉荷马",
+    "shortName": "OKC"
   },
   {
     "teamName": "mavericks",
@@ -267,7 +284,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#018FFE",
     "SpectrumSportsnetScoreBoardColor": "#002149",
-    "city": "达拉斯"
+    "city": "达拉斯",
+    "shortName": "DAL"
   },
   {
     "teamName": "spurs",
@@ -282,7 +300,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#B3C8D6",
     "SpectrumSportsnetScoreBoardColor": "#152023",
-    "city": "圣安东尼奥"
+    "city": "圣安东尼奥",
+    "shortName": "SA"
   },
   {
     "teamName": "rockets",
@@ -297,7 +316,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#C71142",
     "SpectrumSportsnetScoreBoardColor": "#18191A",
-    "city": "休斯顿"
+    "city": "休斯顿",
+    "shortName": "HOU"
   },
   {
     "teamName": "bulls",
@@ -312,7 +332,8 @@
     "espnFontColor": "#C70B36",
     "scoreBoardColor": "#FF0242",
     "SpectrumSportsnetScoreBoardColor": "#14181A",
-    "city": "芝加哥"
+    "city": "芝加哥",
+    "shortName": "CHI"
   },
   {
     "teamName": "grizzlies",
@@ -327,7 +348,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#51A4FE",
     "SpectrumSportsnetScoreBoardColor": "#0D0F31",
-    "city": "孟菲斯"
+    "city": "孟菲斯",
+    "shortName": "MEM"
   },
   {
     "teamName": "hawks",
@@ -342,7 +364,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#FC1434",
     "SpectrumSportsnetScoreBoardColor": "#7B1E20",
-    "city": "亚特兰大"
+    "city": "亚特兰大",
+    "shortName": "ATL"
   },
   {
     "teamName": "pelicans",
@@ -357,7 +380,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#EAB75C",
     "SpectrumSportsnetScoreBoardColor": "#002149",
-    "city": "新奥尔良"
+    "city": "新奥尔良",
+    "shortName": "NOP"
   },
   {
     "teamName": "suns",
@@ -372,7 +396,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#7211C9",
     "SpectrumSportsnetScoreBoardColor": "#150B4B",
-    "city": "菲尼克斯"
+    "city": "菲尼克斯",
+    "shortName": "PHX"
   },
   {
     "teamName": "jazz",
@@ -387,7 +412,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#FDF038",
     "SpectrumSportsnetScoreBoardColor": "#031219",
-    "city": "犹他"
+    "city": "犹他",
+    "shortName": "UTAH"
   },
   {
     "teamName": "warriors",
@@ -402,7 +428,8 @@
     "espnFontColor": "#D80033",
     "scoreBoardColor": "#FFC142",
     "SpectrumSportsnetScoreBoardColor": "#19346E",
-    "city": "金州"
+    "city": "金州",
+    "shortName": "GS"
   },
   {
     "teamName": "kings",
@@ -417,7 +444,8 @@
     "espnFontColor": "",
     "scoreBoardColor": "#8C00FD",
     "SpectrumSportsnetScoreBoardColor": "#062167",
-    "city": "萨克拉门托"
+    "city": "萨克拉门托",
+    "shortName": "SAC"
   },
   {
     "teamName": "lakers",
@@ -432,7 +460,8 @@
     "espnFontColor": "#17212E",
     "scoreBoardColor": "#FFB92E",
     "SpectrumSportsnetScoreBoardColor": "#431C67",
-    "city": "洛杉矶"
+    "city": "洛杉矶",
+    "shortName": "LAL"
   },
   {
     "teamName": "clippers",
@@ -447,6 +476,7 @@
     "espnFontColor": "#E5EDEF",
     "scoreBoardColor": "#F70230",
     "SpectrumSportsnetScoreBoardColor": "#15346D",
-    "city": "洛杉矶"
+    "city": "洛杉矶",
+    "shortName": "LAC"
   }
 ]

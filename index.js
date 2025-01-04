@@ -1,11 +1,27 @@
 const {menubar} = require("menubar");
-const {getCpuInfo} = require("./util/CpuUtil.js");
 const {readJsonFileSync} = require("./util/FileUtil");
-
+const {app, BrowserWindow, ipcRenderer, ipcMain, contextBridge} = require('electron');
 const path = require("path");
 
+// const sqlite3 = require('sqlite3').verbose();
+// const dbPath = path.join(__dirname, 'app.db');
+// // 打开数据库连接
+// const db = new sqlite3.Database(dbPath);
 
-const schedule = require('node-schedule');
+
+// 监听来自渲染进程的消息
+ipcMain.on('confirmStarTeam', (event, arg) => {
+    console.log('Received from renderer:', arg);
+
+
+    // 发送响应给渲染进程
+    event.reply('message-from-main', {message: 'Response from main process'});
+});
+
+ipcMain.on('exit', (event, arg) => {
+    app.quit()
+});
+
 
 const axios = require('axios');
 
@@ -21,10 +37,16 @@ async function httpRequest(url) {
 
 const mb = menubar({
     browserWindow: {
-        transparent: true,
+        transparent: false,
         width: 350,
-        height: 550,
+        height: 300,
+        webPreferences: {
+            preload: path.join(__dirname, 'preload.js'),
+            contextIsolation: true, // 推荐开启
+            nodeIntegration: false // 推荐关闭
+        }
     },
+    index: "file://" + path.join(__dirname, 'web', 'dist', 'index.html'),
     icon: "./build/16x16.png",
     alwaysOnTop: true,
     showOnRightClick: true
@@ -37,13 +59,37 @@ let logoJson = null
 const {JSDOM} = require('jsdom')
 
 let gameInfo = []
-let starTeam = '76人'
+let starTeam = '勇士'
 let enableLive = false
 mb.on("ready", () => {
 
+
+    // // 创建表
+    // db.run("CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY, name TEXT)");
+    // // 插入数据
+    // const stmt = db.prepare("INSERT INTO items (name) VALUES (?)");
+    // stmt.run("Item 1");
+    // stmt.finalize();
+    // // 查询数据
+    // db.each("SELECT id, name FROM items", (err, row) => {
+    //     console.log(row.id + ": " + row.name);
+    // });
     // 读取json
     logoJson = readJsonFileSync(path.join(__dirname, "resources", "logo.json"))
 
+
+    startApp()
+
+
+});
+
+
+function startApp() {
+
+
+    if (gameTimer != null) {
+        clearInterval(gameTimer)
+    }
 
     resetLogo()
 
@@ -60,9 +106,7 @@ mb.on("ready", () => {
             }
         }, 10000);
     }
-
-
-});
+}
 
 function getNbaInfo() {
     console.info("start look game")
@@ -129,7 +173,10 @@ function playGame(starInfo) {
 }
 
 function playScore(starInfo) {
-    mb.tray.setTitle(starInfo['guestTeamName'] + " " + starInfo['guestScore'] + "   " + starInfo['homeTeamName'] + " " + starInfo['homeScore'])
+    let guestShortName = logoJson.find(item => item['teamNameZh'] === starInfo['guestTeamName'])['shortName'];
+    let homeShortName = logoJson.find(item => item['teamNameZh'] === starInfo['homeTeamName'])['shortName'];
+
+    mb.tray.setTitle(guestShortName + " " + starInfo['guestScore'] + "   " + homeShortName + " " + starInfo['homeScore'])
 }
 
 function playLogo(teamInfo) {
