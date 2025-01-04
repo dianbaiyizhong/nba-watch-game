@@ -28,6 +28,5 @@ jobs:
         with:
           files: |
             out/make/*
-          tag_name: ${{ github.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
