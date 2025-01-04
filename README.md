@@ -12,3 +12,11 @@ npm run start
 ```shell
 npm run make
 ```
+
+
+
+# 发布
+```shell
+git tag v1.0.6
+git push origin v1.0.6
+```

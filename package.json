@@ -4,7 +4,7 @@
   "description": "nba桌面小插件",
   "author": "nntk",
   "main": "./index.js",
-  "homepage": "https://electron-vite.org",
+  "homepage": "https://github.com/dianbaiyizhong/nba-watch-game",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
