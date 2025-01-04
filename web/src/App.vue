@@ -1,33 +1,68 @@
 <script setup>
-import {reactive, ref} from 'vue'
+import {reactive, ref, onMounted} from 'vue'
 import 'reset-css';
 
 
-const selected = ref('Florida')
+const selected = ref('湖人')
+const enableLive = ref(true)
+
+const teamItem = ref([])
 
 const changeStarTeam = (value) => {
-  window.electronAPI.send('confirmStarTeam', value);
+  try {
+    window.electronAPI.send('confirmStarTeam', value);
+  } catch (e) {
+    console.warn(e)
+  }
+}
+
+onMounted(() => {
+  try {
+    window.electronAPI.receive('receiveFromElectron', (response) => {
+      if (response.type === 'teamInfo') {
+        teamItem.value = response.message
+      }
+      if (response.type === 'enableLive') {
+        enableLive.value = response.message
+      }
+      if (response.type === 'starTeam') {
+        selected.value = response.message
+      }
+    })
+  } catch (e) {
+    console.warn(e)
+  }
+});
+
+const changeLive = (value) => {
+  try {
+    window.electronAPI.send('enableLive', enableLive.value);
+  } catch (e) {
+    console.warn(e)
+  }
 }
 const exit = () => {
-  window.electronAPI.send('exit');
+  window.electronAPI.send('exit')
 
 }
 </script>
 
 <template>
-  <v-sheet class="mx-auto" max-width="300" style="margin-top: 10px;">
+  <v-sheet class="mx-auto" max-width="300" style="margin-top: 20px;">
     <v-form validate-on="submit lazy">
       <v-select
+          color="primary"
           v-model="selected"
           @update:modelValue="changeStarTeam"
-          label="Select"
-          :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
+          label="请选择你的主队"
+          :items=teamItem
           variant="outlined"
       ></v-select>
 
-      <v-switch label="是否开启实时比分" inset></v-switch>
+      <v-switch v-model=enableLive color="primary" @change="changeLive" label="是否开启实时比分" inset></v-switch>
 
       <v-btn
+          color="primary"
           class="mt-3"
           text="退出"
           @click="exit"

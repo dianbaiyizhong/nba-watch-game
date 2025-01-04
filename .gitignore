@@ -135,3 +135,6 @@ package-lock.json
 
 
 web/node_modules
+
+.DS_Store
+nba.db

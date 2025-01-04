@@ -1,7 +1,7 @@
 {
-  "name": "NBA",
+  "name": "nba-widget",
   "version": "1.0.0",
-  "description": "桌面小插件",
+  "description": "nba桌面小插件",
   "author": "nntk",
   "main": "./index.js",
   "homepage": "https://electron-vite.org",
@@ -17,6 +17,7 @@
     "electron-icon-builder": "^2.0.1",
     "electron-squirrel-startup": "^1.0.1",
     "jsdom": "^25.0.1",
+    "knex": "^3.1.0",
     "menubar": "^9.5.1",
     "node-schedule": "^2.1.1",
     "sqlite3": "^5.1.7"
