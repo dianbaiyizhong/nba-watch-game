@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '20' # 设置所需的 Node.js 版本
       - name: Install dependencies
-        run: npm ci
+        run: npm -i
       - name: Build project
         run: npm run make
       - name: Publish to GitHub Releases
