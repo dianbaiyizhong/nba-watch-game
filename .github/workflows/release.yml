@@ -15,7 +15,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '20' # 设置所需的 Node.js 版本
-      - name: Install dependencies
+      - name: 先安装web依赖
+        run: npm install --prefix web
+      - name: 再安装electron依赖
         run: npm install
       - name: Build project
         run: npm run make
@@ -25,6 +27,5 @@ jobs:
           files: |
             out/**/* # 假设打包后的文件位于 dist 文件夹中
           tag_name: ${{ github.ref }}
-          body_path: ./release_notes.md # 如果有发布说明文件
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
